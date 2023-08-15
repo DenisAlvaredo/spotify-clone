@@ -6,6 +6,7 @@ import axios from "axios";
 
 export default function Playlist() {
     const [{ token, playlists }, dispatch] = useStateProvider();
+    
     useEffect(() => {
         const getPlaylistData = async () => {
             const response = await axios.get('https://api.spotify.com/v1/me/playlists', {
