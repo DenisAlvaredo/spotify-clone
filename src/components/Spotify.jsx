@@ -12,7 +12,7 @@ export default function Spotify() {
     const [{ token }, dispatch] = useStateProvider();
     const bodyRef = useRef();
     const [navBackground, setNavBackground] = useState(false);
-    const [headerBackground, setHeaderBackground] = useState(false);
+    const [headerbackground, setHeaderBackground] = useState(false);
     const bodyScrolled = () => {
         bodyRef.current.scrollTop >= 30 ? setNavBackground(true) : setNavBackground(false);
         bodyRef.current.scrollTop >= 268 ? setHeaderBackground(true) : setHeaderBackground(false);
@@ -29,7 +29,7 @@ export default function Spotify() {
             const userInfo = {
                 userId: data.id,
                 userName: data.display_name,
-                
+                userProduct: data.product,
             };
             dispatch({ type:reducerCases.SET_USER, userInfo })
         };
@@ -43,7 +43,7 @@ export default function Spotify() {
                 <div className="body" ref={bodyRef} onScroll={bodyScrolled}>
                     <Navbar navBackground={navBackground}/>
                     <div className="body__contents">
-                        <Body headerBackground={headerBackground}/>
+                        <Body headerbackground={headerbackground}/>
                     </div>
                 </div>
             </div>
